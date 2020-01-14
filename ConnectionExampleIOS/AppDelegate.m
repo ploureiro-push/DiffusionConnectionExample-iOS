@@ -25,7 +25,7 @@
 
 @implementation AppDelegate
 
-static NSString *const _ServerAddress = @"ws://ptmaclt03.pushtechnology.com:8070"; // @"ws://XXX.XXX.XXX.XXX:8080";
+static NSString *const _ServerAddress = @"ws://XXX.XXX.XXX.XXX:8080";
 static NSString *const _TopicSelectorExpression = @"*Demos/Sportsbook/Football/England//";
 static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
 
