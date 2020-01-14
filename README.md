@@ -15,13 +15,13 @@ The Diffusion version is 6.4, running the SportsBook example.
 
 ## What to expect from this example
 
-This example shows a reconnection strategy that does not iccur of a 5 second delay when a disconnection is detected.
+This example shows a reconnection strategy that is more sympathetic to the iOS app lifecycle.
 
-One of the most common sources of disconnection is placing the App in the background for long period of time, causing the server to kill the session and its connection.
+A common source of disconnection is placing the App in the background for long period of time, after which the server closes session and its connection, as the iOS cannot respond to server ping requests.
 
 You can place your App in the background by either going to the home screen (pressing the home button) or pressing the power button (triggering the lock screen).
 
-When the App starts, it creates a new session with the Diffusion server. When the App becomes active, it will check if there is a valid session in the `DiffusionManager`. If so, it will ping the server.
+When the App starts it creates a new session with the Diffusion server. When the App becomes active, it will check if there is a session in the `DiffusionManager`. If so, it pings the server to validate it.
 
 
 Please look at the following console logs:
@@ -38,7 +38,7 @@ Please look at the following console logs:
 2020-01-14 10:27:29.966882+0000 ConnectionExampleIOS[13088:5475939] DiffusionManagerWithReconnectionStrategy: ping successful (0ms)
 ```
 
-Once the App detects it's active, it detects that no session had been created (first run), creates it and successfully pings the server.
+Once the App detects it is active, it detects that no session had been created (first run), creates a session and successfully pings the server.
 
 
 Please look at the following console logs:

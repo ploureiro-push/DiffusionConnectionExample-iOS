@@ -26,8 +26,8 @@
 @implementation AppDelegate
 
 static NSString *const _ServerAddress = @"ws://XXX.XXX.XXX.XXX:8080";
-static NSString *const _TopicSelectorExpression = @"*Demos/Sportsbook/Football/England//";
-static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
+static NSString *const _TopicSelectorExpression = @">Demos/Sportsbook/Football/England//";
+static NSString *const _TopicSelectorExpressionForAll = @">Demos//";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
