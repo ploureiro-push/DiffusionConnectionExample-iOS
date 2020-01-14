@@ -32,8 +32,8 @@
         NSLog(@"%@: detected existing session", self.LogHeader);
         if ([self.url isEqual:url])
         {
-            NSLog(@"%@: detected session is connected to the same URL. Pinging server", self.LogHeader);
-            [self pingServer];
+            NSLog(@"%@: detected session is connected to the same URL. Testing connection with server", self.LogHeader);
+            [self testConnectionWithServer];
         }
         else
         {
@@ -106,7 +106,7 @@
     return @"DiffusionManager";
 }
 
--(void)pingServer
+-(void)testConnectionWithServer
 {
     if (self.session)
     {
@@ -118,14 +118,10 @@
                 
                 if ([error.domain isEqualToString:PTDiffusionSessionErrorDomain])
                 {
-                    // error came from the Diffusion API
-                    if (error.code == PTDiffusionSessionErrorCode_Disconnected || error.code == PTDiffusionSessionErrorCode_Establishment)
-                    {
-                        NSLog(@"%@: Session has been closed. Opening a new one", self.LogHeader);
-                        [self.session close];
-                        self.session = nil;
-                        [self connectToURL:self->_url withCompletionHandler:nil];
-                    }
+                    NSLog(@"%@: Session has been closed. Opening a new one", self.LogHeader);
+                    [self.session close];
+                    self.session = nil;
+                    [self connectToURL:self->_url withCompletionHandler:nil];
                 }
             }
             else

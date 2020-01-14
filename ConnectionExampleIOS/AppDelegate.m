@@ -25,7 +25,7 @@
 
 @implementation AppDelegate
 
-static NSString *const _ServerAddress = @"ws://XXX.XXX.XXX.XXX:8080";
+static NSString *const _ServerAddress = @"ws://ptmaclt03.pushtechnology.com:8070"; // @"ws://XXX.XXX.XXX.XXX:8080";
 static NSString *const _TopicSelectorExpression = @"*Demos/Sportsbook/Football/England//";
 static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
 
@@ -43,7 +43,6 @@ static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     NSLog(@"Application: will resign active");
-    [self.window.rootViewController.view setBackgroundColor:UIColor.grayColor];
 }
 
 
@@ -51,7 +50,6 @@ static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     NSLog(@"Application: in the background");
-    [self.window.rootViewController.view setBackgroundColor:UIColor.systemPinkColor];
     //
     //NSLog(@"Application: attempting to unsubscribe from topics");
     //[DiffusionManager.sharedManager unsubscribeFrom:_TopicSelectorExpression];
@@ -61,9 +59,6 @@ static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     NSLog(@"Application: entering the foreground");
-    //
-    
-    [self.window.rootViewController.view setBackgroundColor:UIColor.yellowColor];
 }
 
 
@@ -76,7 +71,6 @@ static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
         if (session)
         {
             NSLog(@"Application: session is active");
-            [self.window.rootViewController.view setBackgroundColor:UIColor.greenColor];
             
             //NSLog(@"Application: attempting to subscribe to topics");
             //[DiffusionManager.sharedManager subscribeTo:_TopicSelectorExpression];
@@ -84,7 +78,6 @@ static NSString *const _TopicSelectorExpressionForAll = @"*Demos//";
         else
         {
             NSLog(@"Application: error while creating session: %@", error);
-            [self.window.rootViewController.view setBackgroundColor:UIColor.redColor];
         }
     }];
 }

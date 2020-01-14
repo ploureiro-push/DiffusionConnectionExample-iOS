@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)subscribeTo:(NSString *)selector;
 - (void)unsubscribeFrom:(NSString *)selector;
 
-- (void)pingServer;
+- (void)testConnectionWithServer;
 
 - (PTDiffusionSessionConfiguration *)sessionConfiguration;
 - (NSString *)LogHeader;
